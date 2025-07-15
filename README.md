@@ -1,7 +1,7 @@
 # IntexusFront
 
 
-<h1 align="center"> prueba PruebaIntexus Front </h1>
+<h1 align="center"> prueba pruebaonofffront </h1>
 
 
 <h2 align="left"> Descripcion</h2>
@@ -22,7 +22,7 @@ Este  aplicativo le permite  al usuario registra las tareas diarias que debe hac
      
 <ul> 
         <li> se debe tener instalado  node v22.11.0 o superior</li>
-         <li> haber ejecutado el aplicativo rest PruebaIntexus que se encuentra en el siguiente repositorio https://github.com/alexisrock/PruebaIntexus</li>
+         <li> haber ejecutado el aplicativo rest PruebaIntexus que se encuentra en el siguiente repositorio https://github.com/alexisrock/pruebaonoffback</li>
 </ul>
 </p>
 
