@@ -1,0 +1,146 @@
+<div class="row container">
+
+
+  <div class="container mt-4">
+    <div class="banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h2 class="fw-bold">Tareas</h2>
+        <a [routerLink]="['/tarea/create']" routerLinkActive="router-link-active"  class="btn btn-light mt-2">
+          <i class="bi bi-calendar-plus text-primary"></i> Nueva Tarea
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4  col-md-3 col-ms-3"></div>
+    <div class="col-lg-6 col-md-7 col-ms-7 ">
+      <div class="btn-group mt-4" aria-label="Basic mixed styles example">
+        <button type="button" class="btn border-primary btn-primary rounded-start-pill"
+          (click)="cambiarTablaTareas(1)">Asignadas</button>
+          @if (idRol==1) {
+            <button type="button" [class.active]="component === 2" class="btn  border-primary btn-light rounded-end-pill"
+            (click)="cambiarTablaTareas(2)">Por
+            Asignar</button>
+          }
+
+      </div>
+    </div>
+    <div class="col-lg-3  col-md-2 col-ms-2"></div>
+  </div>
+
+
+  <div class="row mt-4 user-list-container">
+    @if (component==2) {
+    @if(tareas && tareas.length > 0){
+
+    <div class="list-group" *ngFor="let item of tareas; let i = index">
+      <div class="list-group-item list-group-item-action ">
+
+
+        <div class="row">
+          <div class="col-lg-7  col-md-8 col-ms-8 text-left">
+            <p class="text-capitalize fs-3 fw-semibold">{{ item.NameTarea }}</p>
+            <p class="text-body-light"><b>Estado:</b> @if(item.IsCompleted){ Terminada } @else{ Por terminar }</p>
+            <p class="text-body-light">{{ item.DescriptionTarea }}</p>
+
+          </div>
+          <div class="col-lg-2  col-md-1 col-ms-1 ">
+
+          </div>
+          <div class="col-lg-3  col-md-2 col-ms-2">
+            <div class="row">
+
+
+
+              <div class="col-md-1 col-lg-1">
+                <button class="btn btn-outline-primary  text-primary" (click)="verTareaAsignada(item)"> <i class="bi bi-pencil"></i></button>
+              </div>
+              <div class="col-md-1 col-lg-1 "></div>
+              <div class="col-md-1 col-lg-1">
+                <button class="btn btn-outline-primary text-primary"
+                  (click)="EliminarTarea(item.Id)"><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br>
+    </div>
+
+    }
+
+    }@else{
+      @if (idRol==1) {
+        @if(tareas && tareasAsignadas.length > 0){
+          <div class="list-group" *ngFor="let item of tareasAsignadas; let i = index">
+            <div class="list-group-item list-group-item-action ">
+
+
+              <div class="row">
+                <div class="col-lg-7  col-md-8 col-ms-8  text-left">
+                  <p class="text-capitalize fs-3 fw-semibold">{{ item.NameTarea }}</p>
+                  <p class="text-body-light"><b>Usuario:</b> {{item.NameUsuario}}</p>
+                  <p class="text-body-light"><b>Estado:</b> @if(item.IsCompleted){ Terminada } @else{ Por terminar }</p>
+                  <p class="text-body-light">{{item.DescriptionTarea}}</p>
+                </div>
+                <div class="col-lg-2  col-md-1 col-ms-1">
+
+                </div>
+                <div class="col-lg-3  col-md-2 col-ms-2 ">
+                  <div class="row">
+                    <div class="col-md-1 col-lg-1 "></div>
+                    <div class="col-md-1 col-lg-1 "></div>
+                    <div class="col-md-1 col-lg-1">
+                      <button class="btn btn-outline-primary  text-primary"
+                        (click)="eliminarAsignacionTarea(item.Id)"> <i class="bi bi-trash"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+          }
+
+      }@else {
+        @if(tareas && asignacionTareaUsuario.length > 0){
+          <div class="list-group" *ngFor="let item of asignacionTareaUsuario; let i = index">
+            <div class="list-group-item list-group-item-action ">
+
+
+              <div class="row">
+                <div class="col-lg-7  col-md-8 col-ms-8  text-left">
+                  <p class="text-capitalize fs-3 fw-semibold">{{ item.NameTarea }}</p>
+                  <p class="text-body-light"><b>Descripcion:</b> {{item.NameTarea}}</p>
+                  <p class="text-body-light"><b>Estado:</b> @if(item.IsCompleted){ Terminada } @else{ Por terminar }</p>
+
+                </div>
+                <div class="col-lg-2  col-md-1 col-ms-1">
+
+                </div>
+                <div class="col-lg-3  col-md-2 col-ms-2 ">
+                  <div class="row">
+                    <div class="col-md-1 col-lg-1 "></div>
+                    <div class="col-md-1 col-lg-1 "></div>
+                    <div class="col-md-1 col-lg-1">
+                      <button class="btn btn-outline-primary  text-primary" (click)="checkTareacompletada(item.Id)"> <i class="bi bi-pencil"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+        }
+
+      }
+
+
+
+
+    }
+
+  </div>
+</div>

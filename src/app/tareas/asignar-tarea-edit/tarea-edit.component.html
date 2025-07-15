@@ -1,0 +1,78 @@
+<div class="d-flex">
+  <!-- Menú lateral -->
+  <app-menu></app-menu>
+
+  <!-- Contenido Principal -->
+  <div class="p-4">
+
+
+    <div class="fondoTitulos">
+      <h2>Editar Tareas</h2>
+
+    </div>
+    <br>
+    <br>
+
+    <div class="mt-5"></div>
+    <div class="col-lg-7 col-md-8 col-ms-8">
+      <div *ngIf="loading" class="alert alert-success" role="alert">
+        {{message}}
+      </div>
+    </div>
+
+    <form (submit)="sendForm()" [formGroup]="fg">
+
+      <div class="row mt-2">
+        <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        <div class="col-lg-10 col-md-10 col-ms-10  border-bottom border-black">
+          <input type="text" formControlName="NameTarea" class="form-control-plaintext text-dark" />
+        </div>
+        <div *ngIf="fg.get('NameTarea')?.invalid && fg.get('NameTarea')?.touched" class="colorRed">
+          El nombre de la tarea es obligatorio.
+        </div>
+        <div class="col-lg-1 col-md-1 col-ms-1"></div>
+      </div>
+
+      <div class="row mt-2 ">
+        <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        <div class="col-lg-10 col-md-10 col-ms-10 border-bottom border-black">
+          <textarea formControlName="DescriptionTarea" class="form-control-plaintext text-dark"></textarea>
+        </div>
+        <div class="col-lg-1 col-md-1 col-ms-1"></div>
+      </div>
+      <br>
+
+
+      <div class="row mt-2">
+        <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        <div class="col-lg-10 col-md-10 col-ms-10 border-bottom border-black">
+
+          <select formControlName="Usuario" class="form-select form-control-plaintext"
+            aria-label="Default select example">
+            <option selected value="">Seleccione un usuario</option>
+            @for(item of usuarios; track $index) {
+            <option value="{{item.Id}}">{{item.NameUsuario}}</option>
+            }
+          </select>
+
+        </div>
+        <div class="col-lg-1 col-md-1 col-ms-1"></div>
+      </div>
+
+
+      <div class="row mt-4 p-2">
+        <div class="col-lg-3  col-md-2 col-ms-2"></div>
+        <div class="col-lg-7 col-md-8 col-ms-8 ">
+          <input type="submit" class="btn btn-primary rounded-pill" value="Guardar">
+        </div>
+        <div class="col-lg-3 col-md-3 col-ms-2"></div>
+      </div>
+
+
+    </form>
+
+  </div>
+
+
+</div>
+<app-loadding></app-loadding>

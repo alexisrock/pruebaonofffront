@@ -1,0 +1,31 @@
+{
+  "roles": [
+    { "Id": 1, "Description": "Administrador" },
+    { "Id": 2, "Description": "Usuario" },
+    { "Id": 3, "Description": "sin rol" }
+  ],
+
+  "users": [
+    { "Id": 1, "NameUsuario": "Jaime Alexis Bueno Castro", "Email": "alexisrock20@gmail.com", "Password": "MTIzNDU2", "Idro":  1},
+    { "Id": 2, "NameUsuario": "Mario hernandez", "Email": "mhernandez@gmail.com", "Password": "MTIzNDU2", "Idro":  2},
+    { "Id": 3, "NameUsuario": "Carlos Sanchez", "Email": "csanchez@gmail.com", "Password": "MTIzNDU2", "Idro":  2},
+    { "Id": 4, "NameUsuario": "Carlos Sanchez", "Email": "csanchez@gmail.com", "Password": "MTIzNDU2", "Idro":  3}
+  ],
+  "tareassinasignar": [
+    { "Id": 1, "NameTarea": "Hacer el almuerzo", "DescriptionTarea": "prepara el almuerzo del dia de hoy", "IsCompleted": false},
+    { "Id": 2, "NameTarea": "Hacer el oficio", "DescriptionTarea": "hacer el oficio del dia de hoy", "IsCompleted": false},
+    { "Id": 3, "NameTarea": "Hacer tareas de la U", "DescriptionTarea": "hacer las tareas de la universidad el dia de hoy", "IsCompleted": false},
+    { "Id": 4, "NameTarea": "ir al gym", "DescriptionTarea": "ir al gym temprano", "IsCompleted": false}
+
+
+  ],
+  "tareasasignadas": [
+    { "Id": 1, "NameTarea": "Hacer el almuerzo", "DescriptionTarea": "prepara el almuerzo del dia de hoy", "IsCompleted": false},
+    { "Id": 2, "NameTarea": "Hacer el oficio", "DescriptionTarea": "hacer el oficio del dia de hoy", "IsCompleted": false}
+
+
+
+  ]
+
+
+}

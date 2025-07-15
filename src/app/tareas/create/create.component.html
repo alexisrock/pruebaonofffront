@@ -1,0 +1,85 @@
+<div class="d-flex">
+  <!-- Menú lateral -->
+  <app-menu></app-menu>
+
+  <!-- Contenido Principal -->
+  <div class="p-4">
+
+
+
+    <div class="fondoTitulos">
+      <h2>Crear Tarea</h2>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="mt-5">
+      @if(loading$ | async) {
+      <div class="alert" [class]="{'alert-success': isCorrect === true ,'alert-danger': isCorrect === false }"
+        role="alert">
+        {{ message}}
+      </div>
+      }
+
+
+      <form [formGroup]="miFormulario">
+
+        <div class="row mt-2">
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+          <div class="col-lg-10 col-md-10 col-ms-10  border-bottom border-black">
+            <input id="tarea" type="text"  placeholder="Nombre de la tarea"   class="form-control-plaintext text-dark" formControlName="tarea">
+            <div *ngIf="miFormulario.get('tarea')?.invalid && miFormulario.get('tarea')?.touched" class="colorRed">
+              El nombre de la tarea es obligatorio.
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        </div>
+
+
+
+        <br>
+
+        <div class="row mt-2">
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+          <div class="col-lg-10 col-md-10 col-ms-10  border-bottom border-black">
+            <textarea id="descripcion" type="text" placeholder="Descripción" class="form-control-plaintext text-dark"
+              formControlName="descripcion"> </textarea>
+            <div *ngIf="miFormulario.get('descripcion')?.invalid && miFormulario.get('descripcion')?.touched"
+              class="colorRed">
+              Introduce un email válido.
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        </div>
+
+        <br>
+
+        <div class="row mt-4 p-2">
+          <div class="col-lg-3  col-md-2 col-ms-2"></div>
+          <div class="col-lg-7 col-md-8 col-ms-8 ">
+            <button (click)="onSubmit()" [disabled]="miFormulario.invalid" class="btn btn-primary rounded-pill">Enviar</button>
+          </div>
+          <div class="col-lg-3 col-md-3 col-ms-2"></div>
+        </div>
+
+
+      </form>
+
+
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+</div>
+
+<app-loadding></app-loadding>

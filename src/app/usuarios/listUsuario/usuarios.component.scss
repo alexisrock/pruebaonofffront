@@ -1,0 +1,26 @@
+.bannerdos {
+  position: relative;
+  background: url('./../../../../public/img/Usuarios-Redes-Sociales.jpg') center/cover no-repeat;
+  border-radius: 15px;
+  height: 200px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.banner-overlaydos {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+}
+
+.banner-contentdos {
+  position: relative;
+  z-index: 2;
+}
+
+.ancho{
+  width: 80vw;
+}

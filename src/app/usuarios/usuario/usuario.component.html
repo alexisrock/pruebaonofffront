@@ -1,0 +1,71 @@
+
+
+          <form (submit)="sendForm()" [formGroup]="fg">
+
+
+
+
+            <div class="row mt-2 p-2">
+              <div class="col-lg-3 col-md-2 col-ms-2"></div>
+              <div class="col-lg-7 col-md-8 col-ms-8">
+                <div *ngIf="loading" class="alert alert-success" role="alert">
+                  {{message}}
+                </div>
+              </div>
+
+              <div class="col-lg-3 col-md-2 col-ms-2"></div>
+            </div>
+
+
+            <div class="row mt-2 p-2">
+              <div class="col-lg-3 col-md-2 col-ms-2"></div>
+              <div class="col-lg-7 col-md-8 col-ms-8 border-bottom border-black">
+                <input type="Nombres" formControlName="Nombres" class="form-control-plaintext text-dark"
+                  placeholder="Nombres">
+              </div>
+              <div *ngIf="fg.get('Nombres')?.invalid && fg.get('Nombres')?.touched" class="colorRed">
+                El nombre es obligatorio.
+              </div>
+              <div class="col-lg-3 col-md-2 col-ms-2"></div>
+            </div>
+
+            <br>
+
+
+            <div class="row mt-2 p-2">
+              <div class="col-lg-3 col-md-2 col-ms-2"></div>
+              <div class="col-lg-7 col-md-8 col-ms-8 border-bottom border-black">
+                <input type="text" formControlName="Email" class="form-control-plaintext text-dark" placeholder="Email">
+              </div>
+              <div *ngIf="fg.get('Email')?.invalid && fg.get('Email')?.touched" class="colorRed">
+                El correo es obligatorio.
+              </div>
+              <div class="col-lg-3 col-md-2 col-ms-2"></div>
+            </div>
+
+            <br>
+
+            <div class="row mt-2 p-2">
+              <div class="col-lg-3  col-md-2 col-ms-2"></div>
+              <div class="col-lg-7 col-md-8 col-ms-8 border-bottom border-black">
+                <input type="password" formControlName="Password" class=" form-control-plaintext text-dark "
+                  placeholder="Password">
+              </div>
+              <div *ngIf="fg.get('Password')?.invalid && fg.get('Password')?.touched" class="colorRed">
+                El password es obligatorio.
+              </div>
+              <div class="col-lg-3 col-md-3 col-ms-2"></div>
+            </div>
+
+
+            <div class="row mt-4 mb-4 p-2">
+              <div class="col-lg-3  col-md-2 col-ms-2"></div>
+              <div class="col-lg-7 col-md-8 col-ms-8 ">
+                <input type="submit" class="btn btn-primary rounded-pill" value="Crear">
+              </div>
+              <div class="col-lg-3 col-md-3 col-ms-2"></div>
+            </div>
+          </form>
+
+
+<app-loadding></app-loadding>

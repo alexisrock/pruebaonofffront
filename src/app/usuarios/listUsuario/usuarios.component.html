@@ -1,0 +1,66 @@
+<div class="d-flex">
+  <!-- Menú lateral -->
+  <app-menu></app-menu>
+
+  <!-- Contenido Principal -->
+  <div class="p-4 ancho">
+    <div class="row container">
+
+      <div class="container mt-4">
+        <div class="bannerdos">
+          <div class="banner-overlaydos"></div>
+          <div class="banner-contentdos">
+            <h2 class="fw-bold">Usuarios</h2>
+            <a [routerLink]="['/usuario/create']" routerLinkActive="router-link-active" class="btn btn-light mt-2">
+              <i class="bi bi-person-fill-add text-primary"></i> Nuevo Usuario
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<div class="user-list-container">
+  <div class="list-group  " *ngFor="let item of usuarios; let i = index">
+
+    @if (idUsuario != item.Id) {
+      <div class="list-group-item list-group-item-action">
+        <div class="row">
+          <div class="col-lg-7  col-md-8 col-ms-8 text-left">
+            <p class="text-capitalize fs-3 fw-semibold">{{ item.NameUsuario }}</p>
+            <p class="text-body-light"><b>rol: </b>  @switch(item.Idrol){  @case(1){Administrador} @case(2){Usuario}  @default {
+             Sin rol
+            }} </p>
+
+
+          </div>
+          <div class="col-lg-2  col-md-1 col-ms-1 ">
+
+          </div>
+          <div class="col-lg-3  col-md-2 col-ms-2">
+            <div class="row">
+
+
+
+              <div class="col-md-1 col-lg-1">
+                <button class="btn btn-outline-primary  text-primary" (click)="editarUsuario(item)" > <i class="bi bi-pencil"></i></button>
+              </div>
+              <div class="col-md-1 col-lg-1 "></div>
+              <div class="col-md-1 col-lg-1">
+                <button class="btn btn-outline-primary text-primary" (click)="eliminarUsuario(item.Id)"
+                  ><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    }
+
+  </div>
+
+
+</div>
+
+
+  </div>
+</div>

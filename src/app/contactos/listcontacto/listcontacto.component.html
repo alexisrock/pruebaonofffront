@@ -1,0 +1,129 @@
+<div class="d-flex">
+  <!-- Menú lateral -->
+  <app-menu></app-menu>
+
+  <!-- Contenido Principal -->
+  <div class="p-4">
+
+    @if (idRol==1) {
+      @if (contactos && contactos.length > 0) {
+
+        <div class="list-group" *ngFor="let item of contactos; let i = index">
+          <div class="list-group-item list-group-item-action ">
+
+            <div class="row">
+              <div class="col-lg-7  col-md-8 col-ms-8 text-left">
+                <p class="text-capitalize fs-3 fw-semibold">{{ item.Email }}</p>
+                <p class="text-body-light"><b>Tel:</b> {{item.Telefono}}</p>
+                <p class="text-body-light">{{ item.Comentario }}</p>
+
+              </div>
+              <div class="col-lg-2  col-md-1 col-ms-1 ">
+
+              </div>
+              <div class="col-lg-3  col-md-2 col-ms-2">
+                <div class="row">
+                  <div class="col-md-1 col-lg-1 "></div>
+                  <div class="col-md-1 col-lg-1">
+                    <button class="btn btn-outline-primary text-primary"
+                    (click)="Eliminar(item.Id)"><i class="bi bi-trash"></i></button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+        </div>
+
+      }
+    }@else{
+
+      <div class="fondoTitulos">
+        <h2>Crear Contacto</h2>
+      </div>
+
+      <br>
+      <br>
+      <form (submit)="sendForm()" [formGroup]="fg">
+
+
+
+
+        <div class="row mt-2 p-2">
+          <div class="col-lg-3 col-md-2 col-ms-2"></div>
+          <div class="col-lg-7 col-md-8 col-ms-8">
+            <div *ngIf="loading" class="alert alert-success" role="alert">
+              {{message}}
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-2 col-ms-2"></div>
+        </div>
+
+
+        <div class="row mt-2 p-2">
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+          <div class="col-lg-10 col-md-10 col-ms-10 border-bottom border-black">
+            <input type="text" formControlName="Telefono" class="form-control-plaintext text-dark"
+              placeholder="Telefono">
+          </div>
+          <div *ngIf="fg.get('Telefono')?.invalid && fg.get('Telefono')?.touched" class="colorRed">
+            El Telefono es obligatorio.
+          </div>
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        </div>
+
+        <br>
+
+
+        <div class="row mt-2 p-2">
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+          <div class="col-lg-10 col-md-10 col-ms-10 border-bottom border-black">
+            <input type="text" formControlName="Email" class="form-control-plaintext text-dark" placeholder="Email">
+          </div>
+          <div *ngIf="fg.get('Email')?.invalid && fg.get('Email')?.touched" class="colorRed">
+            El correo es obligatorio.
+          </div>
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        </div>
+
+        <br>
+
+        <div class="row mt-2 p-2">
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+          <div class="col-lg-10 col-md-10 col-ms-10 border-bottom border-black">
+            <textarea  formControlName="Comentarios" class=" form-control-plaintext text-dark "
+              placeholder="Comentarios"></textarea>
+          </div>
+          <div *ngIf="fg.get('Comentarios')?.invalid && fg.get('Comentarios')?.touched" class="colorRed">
+            El Comentarios es obligatorio.
+          </div>
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        </div>
+
+
+        <div class="row mt-4 mb-4 p-2">
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+          <div class="col-lg-10 col-md-10 col-ms-10 ">
+            <input type="submit" class="btn btn-primary rounded-pill" value="Crear">
+          </div>
+          <div class="col-lg-1 col-md-1 col-ms-1"></div>
+        </div>
+      </form>
+
+
+
+    }
+
+
+
+
+  </div>
+</div>
+
+<app-loadding></app-loadding>
