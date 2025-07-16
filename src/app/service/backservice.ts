@@ -24,7 +24,7 @@ export class BackService {
 
   constructor(private readonly httpclient: HttpClient) { }
 
-  urlBase: string = "https://9ztsw4f7-44342.use2.devtunnels.ms/";
+  urlBase: string = "http://localhost:8083/";
   private readonly loadingSubject = new BehaviorSubject<boolean>(false);
   loading$ = this.loadingSubject.asObservable();
 
